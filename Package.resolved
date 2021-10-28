@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SocketRocket",
+        "repositoryURL": "https://github.com/alvar-bolt/SocketRocket",
+        "state": {
+          "branch": "spm-support",
+          "revision": "e563abb7686d0fbbb51720ce429486452688552e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
