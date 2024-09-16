@@ -28,8 +28,6 @@
     self.url = nil;
     self.path = @"/mqtt";
     self.tls = false;
-    self.allowUntrustedCertificates = false;
-    self.pinnedCertificates = nil;
     self.additionalHeaders = @{};
     return self;
 }
@@ -39,7 +37,6 @@
     self.state = MQTTTransportOpening;
     
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[self endpointURL]];
-//    urlRequest.SR_SSLPinnedCertificates = self.pinnedCertificates;
   
     [self.additionalHeaders enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
       [urlRequest addValue:obj forHTTPHeaderField:key];
@@ -48,8 +45,7 @@
     NSArray <NSString *> *protocols = @[@"mqtt"];
     
     self.websocket = [[SRWebSocket alloc] initWithURLRequest:urlRequest
-                                                   protocols:protocols
-                              allowsUntrustedSSLCertificates:self.allowUntrustedCertificates];
+                                                   protocols:protocols];
     
     self.websocket.delegate = self;
     [self.websocket open];
@@ -75,7 +71,7 @@
     DDLogVerbose(@"[MQTTWebsocketTransport] send(%ld):%@", (unsigned long)data.length,
                  [data subdataWithRange:NSMakeRange(0, MIN(256, data.length))]);
     if (self.websocket.readyState == SR_OPEN) {
-        [self.websocket send:data];
+        [self.websocket sendData:data error:nil];
         return true;
     } else {
         return false;

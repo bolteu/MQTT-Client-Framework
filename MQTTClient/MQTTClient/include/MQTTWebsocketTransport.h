@@ -38,16 +38,6 @@
  * defaults to @"/html"
  */
 @property (strong, nonatomic) NSString *path;
-
-/** allowUntrustedCertificates a boolean indicating whether self signed or expired certificates should be accepted
- * defaults to NO
- */
-@property (nonatomic) BOOL allowUntrustedCertificates;
-
-/** pinnedCertificates an NSArray containing certificates to validate server certificates against
- * defaults to nil
- */
-@property (strong, nonatomic) NSArray *pinnedCertificates;
   
 /** additionalHeaders an NSDictionary containing extra headers sent when establishing the websocket connection. Useful for custom authorization protocols. e.g. AWS IoT Custom Auth.
  * defaults to an empty dictionary
