@@ -5,8 +5,8 @@
         "package": "SocketRocket",
         "repositoryURL": "https://github.com/alvar-bolt/SocketRocket",
         "state": {
-          "branch": "spm-support",
-          "revision": "e563abb7686d0fbbb51720ce429486452688552e",
+          "branch": null,
+          "revision": "2046780a17cc598a4b648b5db00540d669bee02f",
           "version": null
         }
       }

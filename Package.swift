@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "MQTTClient", targets: ["MQTTClient"]),
     ],
     dependencies: [
-        .package(name: "SocketRocket", url: "https://github.com/alvar-bolt/SocketRocket", .branch("spm-support")),
+        .package(name: "SocketRocket", url: "https://github.com/alvar-bolt/SocketRocket", .revisionItem("2046780a17cc598a4b648b5db00540d669bee02f")),
     ],
     targets: [
         .target(
